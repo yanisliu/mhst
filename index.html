@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MHST -Hunter's Savedata Tool-</title>
+    <title>MHST -Hunter's Save Tool-</title>
     <!-- BootstrapのCSS読み込み -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
@@ -17,28 +17,46 @@
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">MHST</a>
+          <a class="navbar-brand" href="#" data-i18n="navbar.brand">ERROR...</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ファイル <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-i18n="navbar.file.TOGGLE">ファイル</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="javascript:void(0);" onclick="$('#file_input').click();">開く</a></li>
-                <li><a href="javascript:void(0);" onclick="saveFile();">保存</a></li>
+                <li><a href="javascript:void(0);" onclick="$('#file_input').click();" data-i18n="navbar.file.open">開く</a></li>
+                <li><a href="javascript:void(0);" onclick="saveFile();" data-i18n="navbar.file.save">HOZON</a></li>
                 <li class="divider"></li>
-                <li class="disabled"><a href="javascript:void(0);">現在 <span id="file_name">(なし)</span>　を編集中</a></li>
+                <li class="disabled">
+                  <a href="javascript:void(0);">
+                    <span data-i18n="navbar.file.currentNoneEditing.0">GENZAI</span>
+                    <span id="file_name" data-i18n="navbar.file.currentNoneEditing.1">(NASHI)</span>
+                    <span data-i18n="navbar.file.currentNoneEditing.2">WO HENNSYUU TYUU</span>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">JUMP <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credit <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#jump_hero">主人公</a></li>
-                <li><a href="#panel_item">アイテム</a></li>
+                <li class="dropdown-header">GitHub</li>
+                <li><a href="https://github.com/KIRAcc/mhst" target="_blank">Monar: ( ´∀｀) is an anonymous 2channeler</a></li>
+                <li><a href="https://github.com/Jesus10101/mhst" target="_blank">Jesus10101: Translated & made English version</a></li>
+                <li class="dropdown-header">Anonymous Thanks!</li>
+                <li class="disabled"><a href="javascript:void(0);">Anonymous of 2ch</a></li>
+                <li class="disabled"><a href="javascript:void(0);">Users of GBAtemp &  Duowan BBS</a></li>
+                <li class="disabled"><a href="javascript:void(0);">AND YOU... Please your comment!</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-i18n="navbar.jump.TOGGLE">JANPU</span> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#jump_player" data-i18n="LIST_jump.player">SYUJINKOU</a></li>
+                <li><a href="#jump_item" data-i18n="LIST_jump.item">AITEMU</a></li>
               </ul>
             </li>
           </ul>
@@ -47,28 +65,28 @@
     </nav>
     <div class="container">
       <div class="row">
-        <div id="jump_hero" class="col-md-6">
-          <div class="panel panel-default" id="panel_item">
-            <div class="panel-heading">主人公</div>
+        <div id="jump_player" class="col-md-6">
+          <div class="panel panel-default" id="jump_item">
+            <div class="panel-heading" data-i18n="LIST_jump.player">主人公</div>
             <div class="panel-body">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3">名前</span>
-                <input type="text" id="value_name" class="form-control" placeholder="現在、未対応" aria-describedby="sizing-addon3">
+                <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.name">NAMAE</span>
+                <input type="text" id="value_name" class="form-control" placeholder="Not supported now...未対応です。。。" aria-describedby="sizing-addon3">
               </div>
               <div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3">所持金</span>
+                <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.zenny">ZENII</span>
                 <input type="text" id="value_zenny" data-edit="zenny" class="form-control" placeholder="" aria-describedby="sizing-addon3">
-                <span class="input-group-addon" id="sizing-addon3">z</span>
+                <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.REMARK.zenny_R"></span>
               </div>
               <div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3">レベル</span>
+                <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.lv">REBERU</span>
                 <input type="text" id="value_lv" data-edit="lv" class="form-control" aria-describedby="sizing-addon3">
               </div>
               <div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3">経験値</span>
+                <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.exp">KEIKENCHI</span>
                 <input type="text" id="value_exp" data-edit="exp" class="form-control" aria-describedby="sizing-addon3">
                 <span class="input-group-btn">
-                  <button id="button_exp_max" class="btn btn-default" type="button">MAX</button>
+                  <button id="button_exp_max" class="btn btn-default" type="button" data-i18n="panel.player.BUTTON.expMax">MAX</button>
                 </span>
               </div>
             </div>
@@ -79,23 +97,23 @@
       <div class="row">
         <div class="col-md-6" style="">
           <div class="panel panel-default" id="panel_item">
-            <div class="panel-heading">アイテムリスト</div>
+            <div class="panel-heading" data-i18n="LIST_jump.item">AITEMU</div>
             <div class="panel-body">
               <table id="list_item" class="table table-align-right">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>ｱﾄﾞﾚｽ</th>
-                    <th>ｱｲﾃﾑ位置</th>
-                    <th>ｱｲﾃﾑID</th>
-                    <th>ｱｲﾃﾑ名</th>
-                    <th>個数</th>
+                    <th data-i18n="panel.item.TABLE.HEADER.address">ADORESU</th>
+                    <th data-i18n="panel.item.TABLE.HEADER.itemPos">ICHI</th>
+                    <th data-i18n="panel.item.TABLE.HEADER.itemId">ID</th>
+                    <th data-i18n="panel.item.TABLE.HEADER.itemName">NAMAE</th>
+                    <th data-i18n="panel.item.TABLE.HEADER.itemNum">KOSUU</th>
                   </tr>
                 </thead>
                 <tbody>
                 </tbody>
               </table>
-              <p>個数をクリックして編集できます</p>
+              <p data-i18n="panel.item.description"></p>
             </div>
           </div>
         </div>
@@ -103,6 +121,7 @@
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <!-- jQuery読み込み -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- BootstrapのJS読み込み -->
     <script src="./itemlist.js"></script>
     <script src="./main.js"></script>

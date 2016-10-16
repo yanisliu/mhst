@@ -7,7 +7,14 @@ var reader = new FileReader();
 $(document.body).append('<input type="file" id="file_input" style="display:none;">');
 
 $( function() {
-  if(!isCompatible()) alert("お使いのブラウザは対応していません。\n推奨ブラウザはFireFox、Chromeの最新バージョンです。\n\n正常に使用できずセーブデータが破損する可能性があります。対応ブラウザにてご使用ください。")
+  // 多言語化できたよ！やったね！
+  var lang = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
+  i18n.init({lng: lang, fallbackLng: "en"}).done(function() {
+      $("body").i18n();
+      //
+      if(!isCompatible()) alert(i18n.t("dialog.yourBrowserDoesNotSupport"));
+  });
+
   $('input').val('');
 
   $('#file_input').change(function(){ // ファイルが選択された時
@@ -18,13 +25,13 @@ $( function() {
     reader.readAsArrayBuffer(file);
   });
 
-  $('[data-edit]').change(function(){ // ファイルが選択された時
+  $('[data-edit]').change(function(){ // 値が変更された時
     if(data === void(0)) return;
     var target = $(this).data('edit');
     data_edited[target] = $(this).val();
   });
 
-  $('#button_exp_max').click(function(){
+  $('#button_exp_max').click(function(){ // 主人公の「経験値」のMAXボタンが叩かれた時、Lvと経験値を最大値に
     if(data === void(0)) return;
     $('#value_lv').val(99);
     $('#value_exp').val(25165822);
@@ -62,26 +69,27 @@ reader.onload = function(evt){
   for(var pos=0; pos<=1496; pos++) {
     var addr = 0x10 + 8*pos;
     var id = dataView.getUint16( addr , isLE );
-    var idStr = ( '000' + id.toString(16).toUpperCase() ).slice(-4);
-    var name = itemList[id];
+    var idKey = ( '000' + id.toString(16) ).slice(-4);
+    var idStr = idKey.toUpperCase();
+    var name = i18n.t('LIST_item.' + idKey);
+    name = (name === ('LIST_item.' + idKey) ) ? '？？？？？？' : name; // i18nはキーが見つからないとき「キーそのものを文字列として」返すことを利用
     data.item[id] = dataView.getUint16( addr + 2 , isLE );
     if(data.item[id] === 0) continue;
     data.item_pos[id] = pos;
-    if(name === void(0)) name = '？？？？？？';
     var tr = $('<tr></tr>').appendTo('table#list_item > tbody');
     $('<th scope="row"></th>').html( count ).appendTo(tr);
     var td_addr = $('<td></td>').html( '0x' + ( '000' + addr.toString(16).toUpperCase() ).slice(-4) ).appendTo(tr);
-    var td_pos = $('<td></td>').html( (pos+1) + '番目' ).appendTo(tr);
+    var td_pos = $('<td></td>').html( (pos+1) ).appendTo(tr);
     var td_id = $('<td></td>').html( idStr ).appendTo(tr);
     var td_name = $('<td></td>').html( name ).appendTo(tr);
     var td_num = $('<td></td>').html( data.item[id] ).data('item_id', id).appendTo(tr);
 
     td_num.click(function(){
       var id = $(this).data('item_id');
-      var value = prompt('新しい値を入力してください', data.item[id]);
+      var value = prompt( i18n.t('dialog.enterANewValue'), data.item[id]);
       if(value === null) return;
       value = parseInt(value);
-      if( !(0 < value && value < 1000) ) {alert('正常な値（1-999個）を入力してください'); return}
+      if( !(0 < value && value < 1000) ) {alert( i18n.t('dialog.enterACollectValue', {min:1, max:999}) ); return}
 
       data_edited.item[id] = value;
       $(this).html(value);
@@ -107,7 +115,6 @@ function saveFile() {
   $.each(data_edited.item, function(id, val){ // アイテムの場合
     var pos = data.item_pos[id];
     var addr = 0x10 + 8*(pos) + 2;
-    alert(data.item[id] !== val);
     if(data.item[id] !== val) dataView_new.setUint16(addr, val, isLE);
   });
   makeBlob('mhr_game0.sav', fileBuf_new);

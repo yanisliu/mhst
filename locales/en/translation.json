@@ -1,0 +1,105 @@
+{
+  "navbar": {
+    "brand": "MHST: Hunter's Save Tool",
+    "file": {
+      "TOGGLE": "File",
+      "open": "Open",
+      "save": "Save (Download)",
+      "currentNoneEditing": [ "Current", "(None)", "Editing" ]
+    },
+    "jump": { "TOGGLE": "JUMP" }
+  },
+
+  "panel": {
+    "player": {
+      "name": "Player Name",
+      "zenny": "Zenny",
+      "lv": "Player Level",
+      "exp": "Player EXP.",
+      "BUTTON": {
+        "expMax": "MAX Level to 99"
+      },
+      "REMARK": {
+        "zenny_R": "9999999 is the Limit"
+      }
+    },
+    "item": {
+      "TABLE": {
+        "HEADER": {
+          "address": "Address",
+          "itemPos": "Item position",
+          "itemId": "Item ID",
+          "itemName": "Item Name",
+          "itemNum": "Number"
+        }
+      },
+      "description": "You can edit by clicking on the number..."
+    }
+  },
+
+  "dialog": {
+    "yourBrowserDoesNotSupport": "Your browser does not support this website. Recommended browsers are FireFox and Chrome. \n\nSave data might end up being corrupted so USE SUPPORTED BROWSER.",
+    "enterANewValue": "Please enter a new value",
+    "enterACollectValue": "Please enter a collect value（__min__-__max__）"
+  },
+
+  "LIST_jump": {
+    "player": "Player",
+    "item": "Item List"
+  },
+
+  "LIST_item": {
+    "0001": "Herb",
+    "0002": "recovery agents",
+    "0004": "powder of recovery",
+    "000c": "aloe grass",
+    "0016": "mass of fighting spirit",
+    "0029": "demon human drugs",
+    "002a": "kind of patience",
+    "002e": "Wheels",
+    "0076": "flash ball",
+    "0077": "sound bombs",
+    "007b": "throwing knives",
+    "0081": "stone",
+    "008d": "smoke ball",
+    "008e": "binoculars",
+    "00af": "undercooked meat",
+    "01b1": "amulets of intensive training",
+    "013f": "small pearl of Osamusoku",
+    "0147": "small pearl of 耐技",
+    "01d1": "specialty mushroom",
+    "01d2": "piece of golden stone",
+    "01ef": "silver cricket",
+    "020f": "adhesive grass",
+    "0210": "Womiru stone",
+    "0229": "real paint",
+    "023a": "Aokinoko",
+    "0252": "honey",
+    "025f": "bitter worms",
+    "0264": "dead bug",
+    "026a": "Setchakuroari",
+    "0279": "iron ore",
+    "027a": "land of crystal",
+    "027c": "malachite ore",
+    "02af": "Sashimiuo",
+    "02b1": "sharpness",
+    "02c5": "raw meat",
+    "02d3": "squeal bag",
+    "02dd": "flame bag",
+    "0314": "scales of Kaitori",
+    "0315": "wing membrane of Kaitori",
+    "034d": "Daikawa of Ranposu",
+    "034e": "Daitsume of Ranposu",
+    "034f": "Dosuranposu of head",
+    "0449": "hair blue bear Beast",
+    "044a": "blue crustaceans of bear Beast",
+    "048c": "keel [small]",
+    "048e": "animal bones",
+    "048f": "body fluids of monster",
+    "0496": "fur Fango",
+    "0492": "tail of Aputonosu",
+    "049b": "crustaceans shield insect",
+    "04a0": "scales of Ranposu",
+    "04ab": "dragon Gala"
+  }
+}
