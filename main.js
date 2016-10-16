@@ -44,11 +44,9 @@ reader.onload = function(evt){
 
 	var dataView = new DataView( fileBuf );
 
-  // 名前を抽出（MHX）
-  /*var nameBuf = fileBuf.slice(0xc7a1c, 0xc7a1c+32);
-  window.example = nameBuf;
-  data.name = new TextDecoder().decode(nameBuf).replace(/\x00/g, "");
-  $('#value_name').val(data.name);*/
+  // 名前を抽出
+  data.name = readUtf16(fileBuf, 0x9DA0, 12);
+  $('#value_name').val(data.name);
 
   // 所持金を抽出
 	data.zenny = dataView.getUint32(0x5B404, isLE);
@@ -100,14 +98,10 @@ reader.onload = function(evt){
 
 function saveFile() {
   var fileBuf_new = fileBuf.slice(0);
-  // 編集前と値を比較
-  /*if(data.name !== $('#value_name').val()) { // 名前の場合（MHX）
-    /*var newNameBuf = new TextEncoder().encode(value);
-    fillInNull(buffer, 0xC7A1C, 32)
-    buffer.merge(newNameBuf, 0xC7A1C);
-  }*/
   var dataView_new = new DataView(fileBuf_new);
 
+  // 編集前と値を比較
+  if('name' in data_edited) writeUtf16(fileBuf_new, 0x9DA0, 12, data_edited.name); // 名前の場合
   if('zenny' in data_edited) dataView_new.setUint32(0x5B404, parseInt(data_edited.zenny), isLE); // 所持金の場合
   if('lv' in data_edited) dataView_new.setUint8(0x9E64, parseInt(data_edited.lv), isLE); // レベルの場合
   if('exp' in data_edited) dataView_new.setUint32(0x9E68, parseInt(data_edited.exp), isLE); // 経験値の場合
@@ -139,9 +133,33 @@ function makeBlob(fileName, data) {
   }
 }
 
-function fillInNull(buffer, pos, bytes) {
+function readUtf16(buffer, start, bytes) {
+  var bufferDV = new DataView(buffer)
+  ,   str = ''
+  ,   end = start+bytes;
+  for(var i=start; i<end; i+=2) {
+    var code = bufferDV.getUint16(i, isLE);
+    if(code === 0) break;
+    str += String.fromCharCode(code);
+  }
+  return str;
+}
+
+function writeUtf16(buffer, start, bytes, str) {
+  var length = bytes/2 // lengthは２バイト×何個かという変数。つまりいつでもバイト数の1/2になる
+  ,   end = start+bytes
+  ,   bufferDV = new DataView(buffer);
+  writeNull(buffer, start, bytes);
+  for(var i=0; i<length; i++) {
+    var code = str.charCodeAt(i);
+    if(isNaN(code)) break;
+    bufferDV.setUint16(start+i*2, code, isLE); // i*2=オフセット
+  }
+}
+
+function writeNull(buffer, start, bytes) {
   var nullBuf = new ArrayBuffer(bytes);
-  buffer.merge(nullBuf, pos);
+  buffer.merge(nullBuf, start);
 }
 
 function isCompatible() {
