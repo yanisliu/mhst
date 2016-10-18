@@ -319,7 +319,6 @@ function writeNull(buffer, start, bytes) {
 
 function isCompatible() {
   return window.ArrayBuffer
-      && window.TextDecoder
       ;
 }
 
