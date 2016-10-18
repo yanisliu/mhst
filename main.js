@@ -14,7 +14,7 @@ LIST_addr.monster.exp = 0xE0;
 LIST_addr.monster.iv = { hp: 0xD8, atk: 0xD9, def: 0xDA };
 LIST_addr.item.BASE = 0x10;
 LIST_addr.item.next = 8;
-LIST_addr.item.max = 1496;
+LIST_addr.item.max = 1499;
 
 var isLE = true;
 var data = void(0);
