@@ -4,12 +4,18 @@
     "file": {
       "TOGGLE": "File",
       "open": "Open",
+      "open_disabled": "Reload this page to open other files...",
       "save": "Save (Download)",
-      "currentNoneEditing": [ "Current", "(None)", "Editing" ]
+      "currentNoneEditing": [
+        "Current",
+        "(None)",
+        "Editing"
+      ]
     },
-    "jump": { "TOGGLE": "JUMP" }
+    "jump": {
+      "TOGGLE": "JUMP"
+    }
   },
-
   "panel": {
     "player": {
       "name": "Player Name",
@@ -23,31 +29,54 @@
         "zenny_R": "9999999 is the Limit"
       }
     },
+    "monster": {
+      "TABLE": {
+        "HEADER": {
+          "address": "Addr",
+          "name": "Name",
+          "lv": "Lv",
+          "exp": "Exp.",
+          "iv": {
+            "hp": "IV:HP",
+            "atk": "IV:Atk",
+            "def": "IV:Def"
+          }
+        }
+      },
+      "description": "You can edit by clicking on name, Lv, Exp, and IVs..."
+    },
     "item": {
       "TABLE": {
         "HEADER": {
-          "address": "Address",
-          "itemPos": "Item position",
-          "itemId": "Item ID",
-          "itemName": "Item Name",
-          "itemNum": "Number"
+          "address": "Addr",
+          "position": "Item position",
+          "id": "Item ID",
+          "name": "Item Name",
+          "number": "Number"
         }
       },
       "description": "You can edit by clicking on the number..."
     }
   },
-
   "dialog": {
     "yourBrowserDoesNotSupport": "Your browser does not support this website. Recommended browsers are FireFox and Chrome. \n\nSave data might end up being corrupted so USE SUPPORTED BROWSER.",
-    "enterANewValue": "Please enter a new value",
-    "enterACollectValue": "Please enter a collect value（__min__-__max__）"
+    "enterANewValue": "Please enter a new value...\n",
+    "enterACollectValue": "Please enter a collect value...\n"
   },
-
+  "LIST_condition": {
+    "item": "(from 1 to 999)",
+    "monster": {
+      "name": "(10 characters or less)",
+      "lv": "(from 0 to 99)",
+      "exp": "(from 0 to 25165822)",
+      "iv": "(0 and over, 80 and less in total three IVs)"
+    }
+  },
   "LIST_jump": {
     "player": "Player",
+    "monster": "Monster",
     "item": "Item List"
   },
-
   "LIST_item": {
     "0001": "Herb",
     "0002": "recovery agents",
