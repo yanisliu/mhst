@@ -24,9 +24,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-i18n="navbar.file.TOGGLE">ファイル</span> <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-i18n="navbar.file.TOGGLE">FAIRU</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="javascript:void(0);" onclick="$('#file_input').click();" data-i18n="navbar.file.open">開く</a></li>
+                <li id="file_input_li"><a href="javascript:void(0);" onclick="$('#file_input').click();" data-i18n="navbar.file.open">HIRAKU</a></li>
                 <li><a href="javascript:void(0);" onclick="saveFile();" data-i18n="navbar.file.save">HOZON</a></li>
                 <li class="divider"></li>
                 <li class="disabled">
@@ -67,7 +67,7 @@
       <div class="row">
         <div id="jump_player" class="col-md-6">
           <div class="panel panel-default" id="jump_item">
-            <div class="panel-heading" data-i18n="LIST_jump.player">主人公</div>
+            <div class="panel-heading" data-i18n="LIST_jump.player">SYUJINKOU</div>
             <div class="panel-body">
               <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3" data-i18n="panel.player.name">NAMAE</span>
@@ -96,23 +96,48 @@
 
       <div class="row">
         <div class="col-md-6" style="">
+          <div class="panel panel-default" id="panel_monster">
+            <div class="panel-heading" data-i18n="LIST_jump.monster">MONSUTAA</div>
+            <table id="list_monster" class="table table-align-right">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.address">ADORESU</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.name">NAMAE</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.lv">REBERU</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.exp">KEIKENCHI</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.iv.hp">KOTAICHI</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.iv.atk">KOTAICHI</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.iv.def">KOTAICHI</th>
+                  <th data-i18n="panel.monster.TABLE.HEADER.context">...</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <div class="panel-body">
+              <p data-i18n="panel.monster.description"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="">
           <div class="panel panel-default" id="panel_item">
             <div class="panel-heading" data-i18n="LIST_jump.item">AITEMU</div>
+            <table id="list_item" class="table table-align-right">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.address">ADORESU</th>
+                  <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.position">ICHI</th>
+                  <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.id">ID</th>
+                  <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.name">NAMAE</th>
+                  <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.number">KOSUU</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
             <div class="panel-body">
-              <table id="list_item" class="table table-align-right">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.address">ADORESU</th>
-                    <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.itemPos">ICHI</th>
-                    <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.itemId">ID</th>
-                    <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.itemName">NAMAE</th>
-                    <th class="table-th-right" data-i18n="panel.item.TABLE.HEADER.itemNum">KOSUU</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
               <p data-i18n="panel.item.description"></p>
             </div>
           </div>

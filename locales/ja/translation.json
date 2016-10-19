@@ -4,12 +4,18 @@
     "file": {
       "TOGGLE": "ファイル",
       "open": "開く",
+      "open_disabled": "別のファイルを開くには、このページを更新または開き直してください",
       "save": "保存",
-      "currentNoneEditing": [ "現在", "（なし）", "を編集中" ]
+      "currentNoneEditing": [
+        "現在",
+        "（なし）",
+        "を編集中"
+      ]
     },
-    "jump": { "TOGGLE": "JUMP" }
+    "jump": {
+      "TOGGLE": "JUMP"
+    }
   },
-
   "panel": {
     "player": {
       "name": "名前",
@@ -23,31 +29,54 @@
         "zenny_R": "上限:9999999z"
       }
     },
+    "monster": {
+      "TABLE": {
+        "HEADER": {
+          "address": "ｱﾄﾞﾚｽ",
+          "name": "名前",
+          "lv": "Lv",
+          "exp": "Exp.",
+          "iv": {
+            "hp": "IV:HP",
+            "atk": "IV:攻",
+            "def": "IV:防"
+          }
+        }
+      },
+      "description": "名前、個体値（IV）をクリックして編集できます"
+    },
     "item": {
       "TABLE": {
         "HEADER": {
           "address": "ｱﾄﾞﾚｽ",
-          "itemPos": "ｱｲﾃﾑ位置",
-          "itemId": "ｱｲﾃﾑID",
-          "itemName": "ｱｲﾃﾑ名",
-          "itemNum": "個数"
+          "position": "アイテム位置",
+          "id": "アイテムID",
+          "name": "アイテム名",
+          "number": "個数"
         }
       },
       "description": "個数をクリックして編集できます"
     }
   },
-
   "dialog": {
     "yourBrowserDoesNotSupport": "お使いのブラウザは対応していません。\n推奨ブラウザはFireFox、Chromeの最新バージョンです。\n\n正常に使用できず、セーブデータが破損する可能性があります。対応ブラウザにてご使用ください。",
-    "enterANewValue": "新しい値を入力してください",
-    "enterACollectValue": "正常な値（__min__-__max__）を入力してください"
+    "enterANewValue": "新しい値を入力してください\n",
+    "enterACollectValue": "正常な値を入力してください\n"
   },
-
+  "LIST_condition": {
+    "item": "（1以上999以下）",
+    "monster": {
+      "name": "（半角・全角問わず10文字以下）",
+      "lv": "（0以上99以下）",
+      "exp": "（0以上25165822以下）",
+      "iv": "（0以上、他IV含め合計80以下）"
+    }
+  },
   "LIST_jump": {
     "player": "主人公",
+    "monster": "オトモン",
     "item": "アイテム"
   },
-
   "LIST_item": {
     "0001": "薬草",
     "0002": "回復薬",
