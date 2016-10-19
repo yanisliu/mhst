@@ -9,7 +9,7 @@ $(document.body).append('<input type="file" id="file_input" style="display:none;
 $( function() {
   // 多言語化できたよ！やったね！
   var lang = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-  i18n.init({lng: lang, fallbackLng: "en"}).done(function() {
+  i18n.init({lng: lang, fallbackLng: "ja"}).done(function() {
       $("body").i18n();
       //
       if(!isCompatible()) alert(i18n.t("dialog.yourBrowserDoesNotSupport"));
